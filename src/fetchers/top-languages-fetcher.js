@@ -48,7 +48,7 @@ async function fetchTopLanguages(username, exclude_repo = []) {
   let repoNodes = res.data.data.user.repositories.nodes;
   let repoToHide = {};
   
-  console.log(repoNodes);
+  
 
   // populate repoToHide map for quick lookup
   // while filtering out
@@ -64,6 +64,8 @@ async function fetchTopLanguages(username, exclude_repo = []) {
     .filter((name) => {
       return !repoToHide[name.name];
     });
+  
+  console.log(repoNodes);
 
   repoNodes = repoNodes
     .filter((node) => {
